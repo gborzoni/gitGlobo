@@ -1,0 +1,20 @@
+@import 'config/_mixins';
+@import 'config/_font';
+@import 'general/_reset';
+
+// My scss
+body {
+	font-family: $primaryFont;
+}
+p {
+	color: blue;
+	background: black;
+	font-size: 25px;
+	text-align: center;
+
+	&:before {
+		display: inline-block;
+		content: "We are";
+		margin-right: 5px;
+	}
+}
