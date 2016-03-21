@@ -5,16 +5,22 @@
 // My scss
 body {
 	font-family: $primaryFont;
+	overflow: hidden;
+	@include clearfix;
 }
-p {
-	color: blue;
-	background: black;
-	font-size: 25px;
-	text-align: center;
 
-	&:before {
-		display: inline-block;
-		content: "We are";
-		margin-right: 5px;
-	}
+#repos {
+	float: left;
+	position: relative;
+	width: 50%;
+	height: 100%;
+	color: #fff;
+	background: #05a;
+}
+
+#commits {	
+	float: left;
+	position: relative;
+	width: 50%;
+	height: 100%;
 }
