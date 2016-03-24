@@ -1,26 +1,223 @@
+@import 'general/_reset';
 @import 'config/_mixins';
 @import 'config/_font';
-@import 'general/_reset';
 
 // My scss
+body,
+html {
+  height: 100%;
+  max-height: 100%;
+}
 body {
-	font-family: $primaryFont;
-	overflow: hidden;
-	@include clearfix;
+	font-family: $primaryFont;	
 }
 
 #repos {
-	float: left;
 	position: relative;
+	float: left;
 	width: 50%;
 	height: 100%;
+	background: $color5;
 	color: #fff;
-	background: #05a;
+	overflow-y: scroll;
+
+	h2 {
+		position: relative;
+		color: $color1;
+		margin: 10px;
+		padding: 0 15px 5px;
+		border-bottom:1px solid $color1;
+		font-size: 18px;
+		font-weight: 700;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		text-align: right;
+	}
+
+	.repoItem {
+		margin: 20px;
+		padding: 15px;
+		border: 1px solid $color1;
+		border-radius: 4px;
+		text-align: right;
+		@include background-gradient($startColor: $color1, $endColor: $color3);
+		cursor: pointer;
+		.repoItem_name {
+			display: inline-block;
+			vertical-align: middle;
+			color: #333;
+			font-size: 18px;
+			font-weight: 600;
+		}
+		.repoItem_info {
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 20px;
+			&>div {
+				margin: 0 5px;
+			}
+			.repoItem_info--star {
+				position: relative;
+				display: inline-block;
+				vertical-align: middle;
+				width: 40px;
+				height: 40px;
+				border: 1px solid $color1;
+				border-radius: 100%;
+				@include background-gradient($startColor: $color2, $endColor: $color1);
+				line-height: 40px;
+				text-align: center;
+
+				i {
+					position: absolute;
+					width: 40px;
+					height: 40px;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					margin: auto;
+					color: #ccc;
+					font-size: 30px;
+					line-height: 40px;
+					opacity: .7;
+					z-index: 1;
+				}
+				span {
+					position: relative;
+					color:#333;
+					font-weight: 600;
+					z-index: 2;
+				}
+			}
+			.repoItem_info--fork {
+				position: relative;
+				display: inline-block;
+				vertical-align: middle;
+				width: 40px;
+				height: 40px;
+				border: 1px solid $color1;
+				border-radius: 100%;
+				@include background-gradient($startColor: $color2, $endColor: $color1);
+				line-height: 40px;
+				text-align: center;
+
+				i {
+					position: absolute;
+					width: 40px;
+					height: 40px;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					margin: auto;
+					color: #ccc;
+					font-size: 30px;
+					line-height: 40px;
+					opacity: .7;
+					z-index: 1;
+				}
+				span {
+					position: relative;
+					color:#333;
+					font-weight: 600;
+					z-index: 2;
+				}
+			}
+		}
+	}
 }
 
 #commits {	
-	float: left;
 	position: relative;
+	float: left;
 	width: 50%;
 	height: 100%;
+	overflow-y: scroll;
+
+	.repoInfo {
+		position: relative;
+		margin: 10px;
+		padding: 0 15px 5px;
+		border-bottom:1px solid $color3;
+		h2 {
+			display: inline-block;
+			vertical-align: middle;	
+			margin-right: 15px;
+			color: $color5;
+			font-size: 18px;
+			font-weight: 700;
+			letter-spacing: 1px;
+		}
+		.repoInfo--stars {
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0 5px;
+			padding: 2px 6px;
+			border: 1px solid $color2;
+			border-radius: 4px;
+			@include background-gradient($startColor: #fff, $endColor: $color2);
+
+			i {
+				color: $color3;
+			}
+		}
+		.repoInfo--forks{
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0 5px;
+			padding: 2px 6px;
+			border-radius: 4px;
+			border: 1px solid $color2;
+			@include background-gradient($startColor: #fff, $endColor: $color2);
+
+			i {
+				color: $color3;
+			}
+		}
+	}
+
+	.commitItem {
+		padding: 15px;
+		margin: 20px;
+		border: 1px solid $color2;
+		border-radius: 4px;
+		@include background-gradient($startColor: #fff, $endColor: $color2);
+			
+		.commitItem_author {
+			.commitItem_author--avatar {
+				display: inline-block;
+				vertical-align: middle;
+				width: 90px;
+				height: 90px;
+				overflow: hidden;
+				border: 3px solid $color3;
+				border-radius: 100%;
+				@include background-gradient($startColor: $color2, $endColor: #fff);
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+			.commitItem_author--contact {
+				display: inline-block;
+				vertical-align: middle;
+				margin-left: 15px;
+				span {
+					display: block;
+				}
+			}
+		}
+		.commitItem_message{
+			margin-top: 10px;
+			padding: 15px;
+			border-radius: 4px;
+			border: 1px solid $color2;
+			background: #fff;
+			font-size: 18px;
+			font-family: $secondaryFont;
+			text-align: center;
+		}
+	}
 }

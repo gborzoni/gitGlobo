@@ -38,14 +38,6 @@ table, th, td {
   vertical-align: middle;
 }
 
-blockquote before, blockquote after, q before, q after {
-  content: '';
-}
-
 a img {
   border: none;
-}
-
-b, i {
-    display: none;
 }
